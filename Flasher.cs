@@ -31,8 +31,15 @@ namespace ThreadLive
             this.thread.Start();
         }
 
+        /// <summary>
+        /// Return status of flasher thread.
+        /// </summary>
         public Boolean Running
         { get { return running; } }
+        /// <summary>
+        /// Signal that thread should start its action.
+        /// It is already running but doing nothing until this is called.
+        /// </summary>
         public void Start() 
         {
           
@@ -40,18 +47,32 @@ namespace ThreadLive
             
         }
 
+        /// <summary>
+        /// Singnal that thread should stop its action.
+        /// It is still running so it can be signalled to start again.
+        /// </summary>
         public void Stop() 
         { 
             running = false;
             this.button.BackColor = Color.Gray;
-            //this.thread.Abort(); 
+            //this.thread.Abort(); //depricated method should not be used
         }
 
+        /// <summary>
+        /// Calls a depricated (should not use) method to kill the thread.
+        /// If this were done the colour of the button would not be reset to grey.
+        /// </summary>
         public void Kill()
         {
             this.thread.Suspend(); //this is depricated and should not be used as it could kill a thread halfway through an important task.
            
         }
+
+        /// <summary>
+        /// Mathod called by the Thread.
+        /// It starts once and runs in a timeslice. 
+        /// If the code exits then the thread is done and won't run again and is removed from the scheduler's list, it would have to be started again with the Thread.Start() method.
+        /// </summary>
         public void ThreadMethod()
         {
             while (endThread == false)           //should the thread continue executing?

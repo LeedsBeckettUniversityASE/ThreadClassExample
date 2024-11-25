@@ -46,7 +46,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "FLASH";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+           
             // 
             // ExitBut
             // 
@@ -57,7 +57,7 @@
             this.ExitBut.TabIndex = 1;
             this.ExitBut.Text = "Exit Thread";
             this.ExitBut.UseVisualStyleBackColor = true;
-            this.ExitBut.Click += new System.EventHandler(this.button2_Click);
+            this.ExitBut.Click += new System.EventHandler(this.ExitBut_Click);
             // 
             // timer1
             // 
